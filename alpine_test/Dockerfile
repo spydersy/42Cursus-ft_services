@@ -1,2 +1,0 @@
-FROM alpine
-EXPOSE 80 443
