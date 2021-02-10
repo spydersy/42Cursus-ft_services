@@ -5,13 +5,11 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/02/09 10:22:58 by abelarif          #+#    #+#              #
-#    Updated: 2021/02/09 15:45:38 by abelarif         ###   ########.fr        #
+#    Created: 2021/02/10 10:33:14 by abelarif          #+#    #+#              #
+#    Updated: 2021/02/10 10:37:07 by abelarif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FROM	    alpine
-EXPOSE	    443 80
-COPY	    srcs/ /srcs
-RUN		    ./srcs/nginx_config.sh
-CMD 		nginx -g "daemon off;"
+FROM    alpine
+
+EXPOSE  80 443 5000
