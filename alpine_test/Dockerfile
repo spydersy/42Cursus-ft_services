@@ -6,9 +6,11 @@
 #    By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/02/10 12:10:14 by abelarif          #+#    #+#              #
-#    Updated: 2021/02/10 12:10:34 by abelarif         ###   ########.fr        #
+#    Updated: 2021/02/10 16:26:24 by abelarif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM    alpine
 EXPOSE  80 443
+COPY    srcs/ /srcs
+RUN     ./srcs/nginx_config.sh
