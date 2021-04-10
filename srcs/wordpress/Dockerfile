@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 FROM        alpine
-EXPOSE      5050
+EXPOSE      5050 80 443
 COPY        /srcs /srcs
 RUN         ./srcs/install_all.sh
-# ENTRYPOINT  ./srcs/start_services.sh && tail -f /dev/null
+CMD         ./srcs/start_services.sh

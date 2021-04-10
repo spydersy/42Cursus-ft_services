@@ -11,5 +11,6 @@
 # **************************************************************************** #
 
 FROM    alpine
+EXPOSE  3306
 COPY    /srcs /srcs
 RUN     ./srcs/install_all.sh
