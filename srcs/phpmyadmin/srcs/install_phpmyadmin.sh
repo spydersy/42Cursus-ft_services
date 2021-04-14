@@ -5,3 +5,5 @@ rm -rf php*.tar.gz
 mkdir -p /var/lib/phpmyadmin/tmp
 chmod 777 /var/lib/phpmyadmin/tmp
 mv /srcs/config.inc.php /var/www/phpmyadmin/.
+mkdir /var/www/phpmyadmin/tmp
+chmod 777 /var/www/phpmyadmin/tmp

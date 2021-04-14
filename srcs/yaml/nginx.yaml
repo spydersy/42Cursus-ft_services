@@ -2,11 +2,11 @@ apiVersion: v1
 kind: Service
 
 metadata:
-  name: wordpress
+  name: nginx
   annotations:
     metallb.universe.tf/allow-shared-ip: shared
   labels:
-    app: wordpress
+    app: nginx
 
 spec:
   ports:
@@ -20,31 +20,31 @@ spec:
       port: 22          # - port exposed internally in the cluster
       targetPort: 22    # - the container port to send requests to
   selector:
-    app: wordpress
+    app: nginx
   type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name: wordpress
+  name: nginx
   labels:
-    app: wordpress
+    app: nginx
 
 spec:
   selector:
     matchLabels:
-      app: wordpress
+      app: nginx
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
+        app: nginx
     spec:
       containers:
-      - image: wordpress
-        name: wordpress
+      - image: nginx
+        name: nginx
         imagePullPolicy: Never
         ports:
         - containerPort: 80

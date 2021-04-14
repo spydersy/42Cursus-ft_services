@@ -5,12 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/02/15 09:19:55 by abelarif          #+#    #+#              #
-#    Updated: 2021/02/16 05:37:23 by abelarif         ###   ########.fr        #
+#    Created: 2020/10/21 16:55:43 by aamzil            #+#    #+#              #
+#    Updated: 2021/04/13 11:07:22 by abelarif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FROM    alpine
-EXPOSE  3306
-COPY    /srcs /srcs
-RUN     ./srcs/install_all.sh
+FROM alpine
+
+COPY ./srcs/ /srcs
+EXPOSE 3306
+RUN /srcs/install.sh
+CMD /srcs/start.sh
