@@ -44,5 +44,5 @@ Make sure that each redirection toward a service is done using a load balancer. 
   Here is an example of what you will need to set up:
 </p>
 <p align="center">
-  <img src="./imgs/image-008.jpg" alt="Material Bread logo">
+  <img src="./image-008.jpg" alt="Material Bread logo">
 </p>
