@@ -1,2 +1,0 @@
-fix 307 redirect -> wordpress : DONE
-Build ftps image

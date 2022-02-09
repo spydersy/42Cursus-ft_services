@@ -40,5 +40,10 @@ spec:
       - image: phpmyadmin
         name: phpmyadmin
         imagePullPolicy: Never
+        livenessProbe:
+          initialDelaySeconds: 10
+          periodSeconds: 2
+          exec: 
+            command: ["sh", "/srcs/health.sh"]  
         ports:
         - containerPort: 5000

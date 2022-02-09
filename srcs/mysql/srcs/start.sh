@@ -1,10 +1,6 @@
-#!/bin/sh
-
-
 rc-status
 mv /srcs/my.cnf /etc/my.cnf
 /etc/init.d/mariadb setup
-# mysql_install_db --user=mysql --datadir=/var/lib/mysql
 rc-service mariadb start
 mariadb -u root -e "CREATE DATABASE wp_DB;"
 mariadb -u root -e "CREATE DATABASE phpmyadmin;"

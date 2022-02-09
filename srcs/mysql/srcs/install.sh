@@ -1,5 +1,3 @@
-#!/bin/sh
-
 apk update
 apk add openrc
 apk add mariadb mariadb-client

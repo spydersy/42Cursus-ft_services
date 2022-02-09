@@ -1,17 +1,5 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Dockerfile                                         :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/02/09 10:22:58 by abelarif          #+#    #+#              #
-#    Updated: 2021/02/09 15:45:38 by abelarif         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-FROM	    alpine
-EXPOSE	    443 80
+FROM	    alpine:3.12
+EXPOSE	    443 80 22
 COPY	    srcs/ /srcs
 RUN		    ./srcs/nginx_config.sh
-CMD 		nginx -g "daemon off;"
+CMD 		./srcs/start_nginx.sh

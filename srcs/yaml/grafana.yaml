@@ -1,49 +1,47 @@
 apiVersion: v1
 kind: Service
-
 metadata:
-  name: wordpress
+  name: grafana
   annotations:
     metallb.universe.tf/allow-shared-ip: shared
   labels:
-    app: wordpress
-
+    app: grafana
 spec:
   ports:
-    - name: wordpress
-      port: 5050          
-      targetPort: 5050
+    - name: grafana
+      port: 3000          
+      targetPort: 3000
   selector:
-    app: wordpress
+    app: grafana
   type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
-  name: wordpress
+  name: grafana
   labels:
-    app: wordpress
-
+    app: grafana
 spec:
   selector:
     matchLabels:
-      app: wordpress
+      app: grafana
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: wordpress
+        app: grafana
     spec:
       containers:
-      - image: wordpress
-        name: wordpress
+      - image: grafana
+        name: grafana
         imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+          name: grafana
         livenessProbe:
           initialDelaySeconds: 10
           periodSeconds: 2
-          exec: 
-            command: ["sh", "/srcs/health.sh"]  
-        ports:
-        - containerPort: 5050
+          httpGet:
+            path: http://localhost
+            port: 3000

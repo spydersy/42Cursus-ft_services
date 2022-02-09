@@ -1,6 +1,0 @@
-REDIRECTION CODES :
-    https://kinsta.com/blog/http-status-codes/#300-status-codes
-    https://kinsta.com/knowledgebase/307-redirect/
-
-FTPS :
-    https://www.hiroom2.com/2017/08/22/alpinelinux-3-6-vsftpd-en/

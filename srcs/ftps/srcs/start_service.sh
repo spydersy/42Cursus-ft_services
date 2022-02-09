@@ -1,1 +1,0 @@
-rc-service vsftpd restart

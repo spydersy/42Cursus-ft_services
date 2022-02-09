@@ -3,15 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+         #
+#    By: abelarif <abelarif@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/02/14 08:52:11 by abelarif          #+#    #+#              #
-#    Updated: 2021/02/15 07:57:26 by abelarif         ###   ########.fr        #
+#    Created: 2021/05/07 16:26:03 by abelarif          #+#    #+#              #
+#    Updated: 2021/05/18 16:18:08 by abelarif         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-FROM        alpine
-EXPOSE      80 443 21
-COPY        /srcs /srcs
-RUN         /srcs/install_all.sh
-ENTRYPOINT  ./srcs/start_service.sh && tail -f dev/null
+FROM    alpine:3.12
+COPY    ./srcs/ /srcs
+RUN     sh /srcs/install_all.sh
+CMD     sh /srcs/start.sh

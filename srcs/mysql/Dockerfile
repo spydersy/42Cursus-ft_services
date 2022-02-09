@@ -1,18 +1,5 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Dockerfile                                         :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: abelarif <abelarif@student.1337.ma>        +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/10/21 16:55:43 by aamzil            #+#    #+#              #
-#    Updated: 2021/04/13 11:07:22 by abelarif         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
-FROM alpine
-
-COPY ./srcs/ /srcs
-EXPOSE 3306
-RUN /srcs/install.sh
-CMD /srcs/start.sh
+FROM    alpine:3.12
+COPY    ./srcs/ /srcs
+EXPOSE  3306
+RUN     /srcs/install.sh
+CMD     /srcs/start.sh

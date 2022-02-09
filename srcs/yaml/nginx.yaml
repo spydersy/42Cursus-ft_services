@@ -11,26 +11,24 @@ metadata:
 spec:
   ports:
     - name: http
-      port: 80          # - port exposed internally in the cluster
-      targetPort: 80    # - the container port to send requests to
+      port: 80
+      targetPort: 80
     - name: https
-      port: 443          # - port exposed internally in the cluster
-      targetPort: 443    # - the container port to send requests to
+      port: 443
+      targetPort: 443
     - name: ssh
-      port: 22          # - port exposed internally in the cluster
-      targetPort: 22    # - the container port to send requests to
+      port: 22
+      targetPort: 22
   selector:
     app: nginx
   type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
-
 metadata:
   name: nginx
   labels:
     app: nginx
-
 spec:
   selector:
     matchLabels:
@@ -46,6 +44,11 @@ spec:
       - image: nginx
         name: nginx
         imagePullPolicy: Never
+        livenessProbe:
+          initialDelaySeconds: 10
+          periodSeconds: 2
+          exec: 
+            command: ["sh", "/srcs/health.sh"]  
         ports:
         - containerPort: 80
         - containerPort: 443
